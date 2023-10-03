@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1042749152833",
+    "project_id": "android-demo-76182",
+    "storage_bucket": "android-demo-76182.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1042749152833:android:204eafbb145a1ed5b0b0c0",
+        "android_client_info": {
+          "package_name": "com.quang.demo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB83VUwqgAAZlIG7nkUBcHFnv4yBfAfi2w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
