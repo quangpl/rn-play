@@ -5,7 +5,7 @@
  * @format
  */
 
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   Button,
   SafeAreaView,
@@ -27,21 +27,19 @@ import {
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
   useEffect(() => {
-    GoogleSignin.configure({
-      webClientId:
-        '1042749152833-13ilqcgq50g2ceqojmu977eaja346pg1.apps.googleusercontent.com',
-    });
+    GoogleSignin.configure();
   }, []);
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
-
+  const [email, setEmail] = useState('');
   const signIn = async () => {
     try {
       const a = await GoogleSignin.hasPlayServices();
       console.log(a);
       const userInfo = await GoogleSignin.signIn();
       console.log(userInfo);
+      setEmail(userInfo.user.email);
     } catch (error: any) {
       console.log('err');
       console.log(error);
@@ -60,7 +58,14 @@ function App(): JSX.Element {
     <SafeAreaView style={backgroundStyle}>
       <Text style={styles.title}>Register</Text>
       <View style={styles.inputContainer}>
-        <TextInput placeholder="Email" style={styles.input} />
+        <TextInput
+          placeholder="Email"
+          value={email}
+          onChangeText={e => {
+            setEmail(e);
+          }}
+          style={styles.input}
+        />
         <TextInput
           secureTextEntry
           placeholder="Password"
